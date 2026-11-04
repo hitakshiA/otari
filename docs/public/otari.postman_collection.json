@@ -7575,6 +7575,110 @@
     {
       "item": [
         {
+          "name": "Get Organization Sso",
+          "request": {
+            "description": "Read the caller's organization's own sign-in connection. Owners and admins only.\n\n``connection`` is null until the organization saves one.",
+            "header": [],
+            "method": "GET",
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                "me",
+                "sso"
+              ],
+              "raw": "{{baseUrl}}/api/v1/organizations/me/sso"
+            }
+          }
+        },
+        {
+          "name": "Put Organization Sso",
+          "request": {
+            "body": {
+              "mode": "raw",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              },
+              "raw": "{\n  \"issuer\": \"string\",\n  \"client_id\": \"string\",\n  \"display_name\": \"string\"\n}"
+            },
+            "description": "Discover the submitted issuer and save the caller's organization's own sign-in connection.\n\nOwners and admins only. Replaces any existing connection. The client secret is\nencrypted at rest and never served back.",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                "me",
+                "sso"
+              ],
+              "raw": "{{baseUrl}}/api/v1/organizations/me/sso"
+            }
+          }
+        },
+        {
+          "name": "Delete Organization Sso",
+          "request": {
+            "description": "Remove the caller's organization's own sign-in connection. Owners and admins only.\n\nRefused with 404 when the organization has not saved a connection yet.",
+            "header": [],
+            "method": "DELETE",
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                "me",
+                "sso"
+              ],
+              "raw": "{{baseUrl}}/api/v1/organizations/me/sso"
+            }
+          }
+        },
+        {
+          "name": "Test Organization Sso",
+          "request": {
+            "description": "Re-discover the caller's organization's own issuer and store the result. Owners and admins only.\n\nRefused with 404 when the organization has not saved a connection yet.",
+            "header": [],
+            "method": "POST",
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organizations",
+                "me",
+                "sso",
+                "test"
+              ],
+              "raw": "{{baseUrl}}/api/v1/organizations/me/sso/test"
+            }
+          }
+        }
+      ],
+      "name": "organization-sso"
+    },
+    {
+      "item": [
+        {
           "name": "List Traces",
           "request": {
             "description": "List agent sessions, most recently active first unless ``sort`` says otherwise.",

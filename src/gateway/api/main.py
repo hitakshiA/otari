@@ -47,6 +47,7 @@ from gateway.api.routes import (
     organization_keys,
     organization_pricing,
     organization_routing,
+    organization_sso,
     organization_usage,
     organizations,
     otlp,
@@ -139,6 +140,7 @@ _CORE_ROUTERS: tuple[APIRouter, ...] = (
     # ceremony route that answers 503 still says passkeys exist here.
     auth_webauthn.router,
     auth_oauth.router,
+    organization_sso.router,
     embeddings.router,
     images.router,
     audio.router,
